@@ -1,0 +1,50 @@
+{
+  "presets": [
+    "es2017",
+    "react",
+    [
+      "env",
+      {
+        "useBuiltIns": true,
+        "targets": {
+          "browsers": [
+            "Chrome >= 60",
+            "FireFox >= 44",
+            "Safari >= 8",
+            "Explorer 11",
+            "last 2 Edge versions"
+          ]
+        },
+        "modules": false,
+        "loose": true
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": "babel-runtime"
+      }
+    ],
+    "transform-decorators-legacy",
+    "transform-async-to-generator",
+    "react-hot-loader/babel",
+    "transform-function-bind",
+    "transform-es2015-modules-commonjs",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-flow-strip-types",
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src/js"
+        ]
+      }
+    ]
+  ]
+}
