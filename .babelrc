@@ -30,6 +30,12 @@
         "moduleName": "babel-runtime"
       }
     ],
+    [
+      "transform-react-jsx",
+      {
+        "pragma": "preact.h"
+      }
+    ],
     "transform-decorators-legacy",
     "transform-async-to-generator",
     "react-hot-loader/babel",
