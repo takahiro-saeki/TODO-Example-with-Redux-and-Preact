@@ -9,7 +9,7 @@ const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = Merge(common, {
-  entry: ["babel-polyfill", "react-hot-loader/patch", "./js/index.js"],
+  entry: "./js/index.js",
   output: {
     filename: "app.bundle.min.js",
     path: path.resolve(__dirname, "dist"),

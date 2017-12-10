@@ -13,6 +13,7 @@
     "lodash": "^4.17.4",
     "pokesprite": "^1.5.1",
     "preact": "^8.2.6",
+    "preact-redux": "^2.0.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

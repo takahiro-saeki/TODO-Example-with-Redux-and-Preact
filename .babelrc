@@ -33,7 +33,7 @@
     [
       "transform-react-jsx",
       {
-        "pragma": "preact.h"
+        "pragma": "h"
       }
     ],
     "transform-decorators-legacy",

@@ -1,45 +1,18 @@
-import preact, { render, Component } from "preact";
-
-class Sample extends Component {
-  render() {
-    return <div>test</div>;
-  }
-}
-
-render(
-  <div id="foo">
-    <Sample />
-    <span>Hello, world!</span>
-    <button onClick={e => alert("hi!")}>Click Me</button>
-  </div>,
-  document.body
-);
-
-
 import 'babel-polyfill';
-import preact, { render, Component } from "preact";
+import { h, render } from 'preact';
 import { AppContainer } from 'react-hot-loader';
-import configureStore from 'store/configureStore';
+import { createStore } from 'redux'
+import { Provider } from 'preact-redux'
+import App from './containers/App'
+import reducer from './reducers';
 
 document.body.style.margin = 0;
 
-const store = configureStore();
+const store = createStore(reducer)
 
 render(
-  <AppContainer>
-    <Root store={store} />
-  </AppContainer>,
+    <Provider store={store}>
+      <App />
+    </Provider>,
   document.getElementById('app')
 );
-
-if (module.hot) {
-  module.hot.accept('./Root', () => {
-    const RootContainer = require('./Root').default;
-    render(
-      <AppContainer>
-        <App />
-      </AppContainer>,
-      document.getElementById('app')
-    );
-  });
-}
