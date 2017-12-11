@@ -5,6 +5,7 @@ import { createStore } from 'redux'
 import { Provider } from 'preact-redux'
 import App from './containers/App'
 import reducer from './reducers';
+import 'todomvc-app-css/index.css';
 
 document.body.style.margin = 0;
 
