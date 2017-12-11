@@ -1,9 +1,9 @@
 import { h } from "preact";
 
-const TodoItem = () => (
-  <li id="" className="">
+const TodoItem = ({data}) => (
+  <li id={data.id} className="">
     <input class="toggle" type="checkbox" />
-    <label />
+    <label>{data.text}</label>
     <button class="destroy" />
   </li>
 );
