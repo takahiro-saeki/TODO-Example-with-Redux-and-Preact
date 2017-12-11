@@ -1,9 +1,13 @@
 import { h } from "preact";
 
-const FooterItem = () => (
+const FooterItem = ({data, filterChange}) => (
   <li>
-    <a href="" className="">
-      {" "}
+    <a 
+      href={`#/${data.type}`} 
+      className={data.isSelected ? 'selected' : null}
+      onClick={() => filterChange(data.type.toUpperCase())}
+    >
+      {data.type}
     </a>
   </li>
 );

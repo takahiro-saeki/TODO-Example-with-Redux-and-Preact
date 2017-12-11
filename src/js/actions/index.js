@@ -6,3 +6,15 @@ export const addTodo = (text) => ({
   id: uuid.v4(),
   completed: false,
 })
+
+export const deleteTodo = (data) => ({
+  type: 'DELETE',
+  data
+})
+
+export const toggleTodo = (data) => ({
+  type: 'TOGGLE',
+  data
+})
+
+export const filterChange = (type) => ({type})

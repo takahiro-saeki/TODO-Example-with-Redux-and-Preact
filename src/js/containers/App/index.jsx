@@ -6,7 +6,7 @@ import Todo from '../../components/Todo';
 import * as actions from '../../actions';
 
 const App = ({todo, addTodo}) => (
-  <div onClick={() => console.log(todo)}>
+  <div>
     <section className="todoapp">
       <Header title="Preact TODO" placeholder="what is your task?" addTodo={addTodo}/>
       <Todo data={todo}/>

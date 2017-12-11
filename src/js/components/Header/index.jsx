@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import { bindActionCreators } from 'redux'
 import { connect } from 'preact-redux'
 import * as actions from '../../actions';
+import { isEmpty } from 'lodash';
 
 export default class Header extends Component {
   constructor(props) {
