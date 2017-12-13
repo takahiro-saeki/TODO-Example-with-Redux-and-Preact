@@ -10,7 +10,7 @@ export default class TodoItem extends Component {
     this.setState(state => ({ isEdit: !state.isEdit }));
   };
 
-  isEnter = (e, id, text) => {
+  isEnter = (e, id) => {
     if (e.which === 13) {
       this.props.editTodo(id, e.target.value);
       return this.changeEdit();

@@ -12,13 +12,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = Merge(common, {
   entry: "./js/index.js",
   output: {
-    filename: "pokedex.bundle.min.js",
+    filename: "bundle.min.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "kobo/genre page multiple",
+      title: "TODO Example/ Preact with Redux",
       template: path.join(__dirname, "./src/index.ejs")
     }),
     new webpack.DefinePlugin({

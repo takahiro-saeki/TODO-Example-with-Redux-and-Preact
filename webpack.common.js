@@ -4,7 +4,6 @@ const webpack = require("webpack");
 module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
   },
   context: path.resolve(__dirname, "src"),
   performance: {
