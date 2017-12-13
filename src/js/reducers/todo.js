@@ -31,6 +31,16 @@ export default function todos(state = defaultData, action) {
       })
       return toggleData;
     }
+    case 'TOGGLE_ALL': {
+      const optimize = state.map(item => {
+        const param = {
+          ...item,
+          completed: action.flag
+        }
+        return param;
+      })
+      return optimize;
+    }
   default:
     return state;
   }

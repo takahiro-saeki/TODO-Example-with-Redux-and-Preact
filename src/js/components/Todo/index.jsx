@@ -1,9 +1,12 @@
 import { h, Component } from "preact";
-import { bindActionCreators } from 'redux'
-import { connect } from 'preact-redux'
-import * as actions from '../../actions';
 import Footer from '../Footer';
 import TodoItem from '../TodoItem';
+
+const DEFAULT_FILTER = [
+  { type: 'All' },
+  { type: 'Active' },
+  { type: 'Completed' }
+];
 
 const TODO_FILTERS = {
   ['ALL']: () => true,
@@ -12,28 +15,57 @@ const TODO_FILTERS = {
 }
 
 class Todo extends Component {
+  state = {
+    filter: 'ALL',
+    isChecked: false
+  }
+  
+  handleChange = (type = 'ALL') => {
+    this.setState({filter: type})
+  }
+  
+  handleChecked = () => {
+    this.setState(state => {
+      const flag = !state.isChecked
+      this.props.handleToggleAll(flag)
+      const changeCheckBox = { isChecked: flag }
+      return changeCheckBox
+    })
+  }
+  
   render() {
-    const { filter } = this.state;
-    const { data, todoFilter, filterChange } = this.props;
-    const calc = todoFilter.filter(item => item)
-    console.log(calc)
+    const { filter, isChecked } = this.state;
+    const { data, todoFilter, toggleTodo, deleteTodo } = this.props;
     return (
-      <section style="display: block;" class="main">
-        <input class="toggle-all" type="checkbox" />
-        <label for="toggle-all">Mark all as complete</label>
-        <ul class="todo-list">
-          {data.filter(TODO_FILTERS[calc[0].type]).map(item => <TodoItem data={item} />)}
+      <section style="display: block;" className="main">
+        <input 
+          className="toggle-all" 
+          type="checkbox" 
+          checked={isChecked}
+        />
+        <label 
+          for="toggle-all" 
+          onClick={this.handleChecked}>
+          Mark all as complete
+        </label>
+        <ul className="todo-list">
+          {data.filter(TODO_FILTERS[filter]).map(item => (
+            <TodoItem 
+              data={item} 
+              toggleTodo={toggleTodo} 
+              deleteTodo={deleteTodo}
+            />
+          ))}
         </ul>
-        <Footer todoFilter={todoFilter} filterChange={filterChange}/>
+        <Footer 
+          todoFilter={DEFAULT_FILTER} 
+          filterChange={this.handleChange}
+          currentType={filter}
+          data={data}
+        />
       </section>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  todoFilter: state.todoFilter
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo)
+export default Todo

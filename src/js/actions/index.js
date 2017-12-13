@@ -17,4 +17,7 @@ export const toggleTodo = (data) => ({
   data
 })
 
-export const filterChange = (type) => ({type})
+export const handleToggleAll = (flag) => ({
+  type: 'TOGGLE_ALL',
+  flag
+})

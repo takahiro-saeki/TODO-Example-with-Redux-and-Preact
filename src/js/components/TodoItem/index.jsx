@@ -1,7 +1,4 @@
 import { h } from 'preact';
-import { bindActionCreators } from 'redux'
-import { connect } from 'preact-redux'
-import * as actions from '../../actions';
 
 const TodoItem = ({data, deleteTodo, toggleTodo}) => (
   <li id={data.id} className={data.completed ? 'completed' : null }>
@@ -16,10 +13,4 @@ const TodoItem = ({data, deleteTodo, toggleTodo}) => (
   </li>
 );
 
-const mapStateToProps = state => ({
-  todo: state.todo
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoItem)
+export default TodoItem;
