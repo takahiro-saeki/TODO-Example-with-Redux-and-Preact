@@ -5,27 +5,29 @@ module.exports = {
     "es6": true
   },
   "extends": [
+    "airbnb",
     "prettier",
+    "prettier/react",
     "eslint:recommended"
   ],
   "parserOptions": {
+    "ecmaVersion": 8,
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
+      "modules": true,
       "jsx": true
-    },
-    "sourceType": "module"
+    }
   },
-  "plugins": ["react"],
+  "plugins": ["react", "prettier"],
   "rules": {
-    "indent": [
-      "error", 2
+    "prettier/prettier": [
+      2,
+      {
+        "singleQuote": true,
+        "semi": true
+      },
     ],
-    "linebreak-style": [
-      "error", "unix"
-    ],
-    "quotes": [
-      "error", "single"
-    ],
-    "semi": ["error", "always"]
+    "comma-dangle": 0,
+    "react/react-in-jsx-scope": 0,
+    "no-unused-vars": [0, { "varsIgnorePattern": "^h$" }]
   }
 };

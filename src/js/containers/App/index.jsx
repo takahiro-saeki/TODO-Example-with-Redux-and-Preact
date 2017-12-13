@@ -5,13 +5,25 @@ import Header from '../../components/Header';
 import Todo from '../../components/Todo';
 import * as actions from '../../actions';
 
-const App = ({todo, addTodo, handleToggleAll, toggleTodo, deleteTodo, clearTodo, editTodo}) => (
+const App = ({
+  todo,
+  addTodo,
+  handleToggleAll,
+  toggleTodo,
+  deleteTodo,
+  clearTodo,
+  editTodo
+}) => (
   <div>
     <section className="todoapp">
-      <Header title="Preact TODO" placeholder="what is your task?" addTodo={addTodo} />
-      <Todo 
-        data={todo} 
-        handleToggleAll={handleToggleAll} 
+      <Header
+        title="Preact TODO"
+        placeholder="what is your task?"
+        addTodo={addTodo}
+      />
+      <Todo
+        data={todo}
+        handleToggleAll={handleToggleAll}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
         clearTodo={clearTodo}
