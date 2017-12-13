@@ -32,7 +32,7 @@ const Footer = ({todoFilter, filterChange, currentType, data, clearTodo}) => (
 
 Footer.defaultProps = {
   data: []
-}
+};
 
-export default Footer
+export default Footer;
 

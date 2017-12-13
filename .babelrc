@@ -1,7 +1,5 @@
 {
   "presets": [
-    "es2017",
-    "react",
     [
       "env",
       {
@@ -36,6 +34,7 @@
         "pragma": "h"
       }
     ],
+    "lodash",
     "transform-decorators-legacy",
     "transform-async-to-generator",
     "react-hot-loader/babel",

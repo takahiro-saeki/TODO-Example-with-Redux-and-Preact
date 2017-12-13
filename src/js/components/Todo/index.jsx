@@ -20,6 +20,11 @@ class Todo extends Component {
     isChecked: false
   }
   
+  componentDidMount() {
+    const url = location.hash.split('/')[1].toUpperCase()
+    this.setState({ filter: url })
+  }
+  
   handleChange = (type = 'ALL') => {
     this.setState({filter: type})
   }
@@ -35,13 +40,14 @@ class Todo extends Component {
   
   render() {
     const { filter, isChecked } = this.state;
-    const { data, todoFilter, toggleTodo, deleteTodo, clearTodo } = this.props;
+    const { data, todoFilter, toggleTodo, deleteTodo, clearTodo, editTodo } = this.props;
+    const filterFlag = data.filter(item => item.completed === false).length === 0;
     return (
       <section style="display: block;" className="main">
         <input 
           className="toggle-all" 
           type="checkbox" 
-          checked={isChecked}
+          checked={filterFlag}
         />
         <label 
           for="toggle-all" 
@@ -54,6 +60,7 @@ class Todo extends Component {
               data={item} 
               toggleTodo={toggleTodo} 
               deleteTodo={deleteTodo}
+              editTodo={editTodo}
             />
           ))}
         </ul>

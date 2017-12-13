@@ -1,4 +1,4 @@
-import { h } from "preact";
+import { h } from 'preact';
 
 const FooterItem = ({data, filterChange, currentType}) => (
   <li>

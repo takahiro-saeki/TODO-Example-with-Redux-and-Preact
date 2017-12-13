@@ -2,17 +2,20 @@ import { h, Component } from 'preact';
 
 export default class TodoItem extends Component {
   state = {
-    isEdit: false
+    isEdit: false,
+    text: ''
   }
   
   changeEdit = () => {
     this.setState(state => ({isEdit: !state.isEdit}))
   }
   
-  isEnter = e => {
+  isEnter = (e, id, text) => {
     if(e.which === 13) {
-      this.changeEdit()
-    } 
+      this.props.editTodo(id, e.target.value)
+      return this.changeEdit()
+    }
+    this.setState({ text: e.target.value })
   }
   
   componentDidUpdate() {
@@ -35,7 +38,8 @@ export default class TodoItem extends Component {
             type="text"
             className="edit" 
             onBlur={this.changeEdit}
-            onKeyDown={this.isEnter}
+            onKeyDown={e => this.isEnter(e, data.id)}
+            value={this.state.text}
           />
         </li>
       )

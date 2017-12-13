@@ -29,8 +29,7 @@ export default class Header extends Component {
         <h1>{title}</h1>
         <input 
           className="new-todo" 
-          placeholder={placeholder} 
-          autofocus="" 
+          placeholder={placeholder}
           onKeyDown={this.handleSubmit}
           value={this.state.text}
         />

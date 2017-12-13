@@ -10,8 +10,13 @@ import {
 import App from './containers/App'
 import reducer from './reducers';
 import 'todomvc-app-css/index.css';
+import storage from './domain/storage';
 
-const store = createStore(reducer, composeWithDevTools())
+const store = createStore(
+  reducer, 
+  storage.read() ? { todo: storage.read() } : {}, 
+  composeWithDevTools()
+)
 
 render(
     <Provider store={store}>
