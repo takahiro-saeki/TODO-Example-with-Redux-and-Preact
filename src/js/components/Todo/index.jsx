@@ -35,7 +35,7 @@ class Todo extends Component {
   
   render() {
     const { filter, isChecked } = this.state;
-    const { data, todoFilter, toggleTodo, deleteTodo } = this.props;
+    const { data, todoFilter, toggleTodo, deleteTodo, clearTodo } = this.props;
     return (
       <section style="display: block;" className="main">
         <input 
@@ -61,6 +61,7 @@ class Todo extends Component {
           todoFilter={DEFAULT_FILTER} 
           filterChange={this.handleChange}
           currentType={filter}
+          clearTodo={clearTodo}
           data={data}
         />
       </section>

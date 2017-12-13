@@ -21,3 +21,7 @@ export const handleToggleAll = (flag) => ({
   type: 'TOGGLE_ALL',
   flag
 })
+
+export const clearTodo = () => ({
+  type: 'CLEAR_TODO'
+})

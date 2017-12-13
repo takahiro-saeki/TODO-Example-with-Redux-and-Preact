@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Todo from '../../components/Todo';
 import * as actions from '../../actions';
 
-const App = ({todo, addTodo, handleToggleAll, toggleTodo, deleteTodo}) => (
+const App = ({todo, addTodo, handleToggleAll, toggleTodo, deleteTodo, clearTodo}) => (
   <div>
     <section className="todoapp">
       <Header title="Preact TODO" placeholder="what is your task?" addTodo={addTodo}/>
@@ -14,6 +14,7 @@ const App = ({todo, addTodo, handleToggleAll, toggleTodo, deleteTodo}) => (
         handleToggleAll={handleToggleAll} 
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
+        clearTodo={clearTodo}
       />
     </section>
   </div>

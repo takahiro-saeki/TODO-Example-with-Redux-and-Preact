@@ -41,6 +41,10 @@ export default function todos(state = defaultData, action) {
       })
       return optimize;
     }
+    case 'CLEAR_TODO': {
+      const optimize = state.filter(item => item.completed === false)
+      return optimize
+    }
   default:
     return state;
   }
