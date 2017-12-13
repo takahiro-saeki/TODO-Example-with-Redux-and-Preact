@@ -1,10 +1,10 @@
 import uuid from 'uuid';
 import { ADD, DELETE, TOGGLE, TOGGLE_ALL, CLEAR_TODO, EDIT_TODO } from '../constants/ActionTypes';
 
-export const addTodo = text => ({
+export const addTodo = (text, id) => ({
   type: ADD,
   text,
-  id: uuid.v4(),
+  id,
   completed: false
 });
 

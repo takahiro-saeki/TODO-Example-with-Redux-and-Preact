@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { bindActionCreators } from 'redux';
 import { isEmpty } from 'lodash';
+import uuid from 'uuid'
 
 export default class Header extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class Header extends Component {
   handleSubmit = e => {
     const text = e.target.value.trim();
     if (e.which === 13) {
-      this.props.addTodo(e.target.value);
+      this.props.addTodo(e.target.value, uuid.v4());
       this.setState(state => ({ text: '' }));
       return;
     }
@@ -21,7 +22,7 @@ export default class Header extends Component {
   };
 
   render() {
-    const { title, placeholder, addTodo } = this.props;
+    const { title, placeholder } = this.props;
     return (
       <header className="header">
         <h1>{title}</h1>

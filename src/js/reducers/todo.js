@@ -3,7 +3,7 @@ import storage from '../domain/storage';
 import { ADD, DELETE, TOGGLE, TOGGLE_ALL, CLEAR_TODO, EDIT_TODO } from '../constants/ActionTypes';
 
 
-export default function todos(state = defaultData, action) {
+export default function todo(state = defaultData, action) {
   switch (action.type) {
     case ADD: {
       const newTodo = {
