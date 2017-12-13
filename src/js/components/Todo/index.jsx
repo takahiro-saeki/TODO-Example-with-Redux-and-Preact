@@ -1,17 +1,19 @@
 import { h, Component } from 'preact';
+import { isEmpty, upperFirst } from 'lodash';
 import Footer from '../Footer';
 import TodoItem from '../TodoItem';
+import { ALL, ACTIVE, COMPLETED } from '../../constants/FilterTypes';
 
 const DEFAULT_FILTER = [
-  { type: 'All' },
-  { type: 'Active' },
-  { type: 'Completed' }
+  { type: upperFirst(ALL) },
+  { type: upperFirst(ACTIVE) },
+  { type: upperFirst(COMPLETED) }
 ];
 
 const TODO_FILTERS = {
-  ['ALL']: () => true,
-  ['ACTIVE']: todo => !todo.completed,
-  ['COMPLETED']: todo => todo.completed
+  [ALL]: () => true,
+  [ACTIVE]: todo => !todo.completed,
+  [COMPLETED]: todo => todo.completed
 };
 
 class Todo extends Component {
@@ -21,6 +23,9 @@ class Todo extends Component {
   };
 
   componentDidMount() {
+    if(isEmpty(location.hash)) {
+      return false
+    }
     const url = location.hash.split('/')[1].toUpperCase();
     this.setState({ filter: url });
   }

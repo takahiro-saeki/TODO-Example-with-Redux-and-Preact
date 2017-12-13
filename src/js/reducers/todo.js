@@ -1,9 +1,11 @@
 import defaultData from '../defaultData';
 import storage from '../domain/storage';
+import { ADD, DELETE, TOGGLE, TOGGLE_ALL, CLEAR_TODO, EDIT_TODO } from '../constants/ActionTypes';
+
 
 export default function todos(state = defaultData, action) {
   switch (action.type) {
-    case 'ADD': {
+    case ADD: {
       const newTodo = {
         id: action.id,
         text: action.text,
@@ -13,12 +15,12 @@ export default function todos(state = defaultData, action) {
       storage.store(newState);
       return newState;
     }
-    case 'DELETE': {
+    case DELETE: {
       const sortData = state.filter(item => item.id !== action.data.id);
       storage.store(sortData);
       return sortData;
     }
-    case 'TOGGLE': {
+    case TOGGLE: {
       const toggleData = state.map(item => {
         if (item.id === action.data.id) {
           const data = {
@@ -32,7 +34,7 @@ export default function todos(state = defaultData, action) {
       storage.store(toggleData);
       return toggleData;
     }
-    case 'TOGGLE_ALL': {
+    case TOGGLE_ALL: {
       const optimize = state.map(item => {
         const param = {
           ...item,
@@ -43,12 +45,12 @@ export default function todos(state = defaultData, action) {
       storage.store(optimize);
       return optimize;
     }
-    case 'CLEAR_TODO': {
+    case CLEAR_TODO: {
       const optimize = state.filter(item => item.completed === false);
       storage.store(optimize);
       return optimize;
     }
-    case 'EDIT_TODO': {
+    case EDIT_TODO: {
       const optimize = state.map(item => {
         if (action.id === item.id) {
           const param = {
