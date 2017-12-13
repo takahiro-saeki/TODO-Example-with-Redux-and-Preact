@@ -56,7 +56,7 @@ class Todo extends Component {
     const filterFlag =
       data.filter(item => item.completed === false).length === 0;
     return (
-      <section style="display: block;" className="main">
+      <section style={{display: data.length === 0 ? 'none' : 'block'}} className="main">
         <input className="toggle-all" type="checkbox" checked={filterFlag} />
         <label htmlFor="toggle-all" onClick={this.handleChecked}>
           Mark all as complete
