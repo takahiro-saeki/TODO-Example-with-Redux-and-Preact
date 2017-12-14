@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "husky": "^0.15.0-beta.16",
     "lodash": "^4.17.4",
     "preact": "^8.2.7",
     "preact-redux": "^2.0.3",
@@ -64,7 +65,7 @@
   "homepage": "https://github.com/takahiro-saeki/TODO-Example-with-Redux-and-Preact#readme",
   "husky": {
     "hooks": {
-      "precommit": "npm test"
+      "precommit": "npm test && npm run lint-fix"
     }
   },
   "jest": {
