@@ -17,6 +17,7 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
@@ -28,6 +29,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-function-bind": "^6.22.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.10",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -37,7 +39,6 @@
     "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^4.13.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -52,12 +53,7 @@
     "jest-localstorage-mock": "^2.1.0",
     "lodash-webpack-plugin": "^0.11.4",
     "postcss-loader": "^2.0.9",
-    "postcss-size": "^2.0.0",
-    "pre-commit": "^1.2.2",
-    "precss": "^2.0.0",
     "prettier": "^1.9.2",
-    "react-hot-loader": "^3.1.3",
-    "react-test-renderer": "^16.2.0",
     "redux-devtools-extension": "^2.13.2",
     "style-loader": "^0.19.0",
     "webpack": "^3.10.0",
@@ -68,7 +64,7 @@
   "homepage": "https://github.com/takahiro-saeki/TODO-Example-with-Redux-and-Preact#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "npm test && npm run lint-fix"
+      "precommit": "npm test"
     }
   },
   "jest": {
@@ -87,9 +83,7 @@
     "url": "git+https://github.com/takahiro-saeki/TODO-Example-with-Redux-and-Preact.git"
   },
   "scripts": {
-    "browserTest": "node browserTest/sample.js",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "build-storybook": "build-storybook",
     "clean": "rimraf 'dist/*.{js,json,svg,png,css,woff,woff2,ttf,eot,html}'",
     "lint": "eslint src/js/**/*",
     "lint-fix": "eslint src/js/**/*.jsx src/js/**/*.js src/js/**/* --fix --quiet",

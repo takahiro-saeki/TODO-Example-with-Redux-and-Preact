@@ -34,14 +34,15 @@
         "pragma": "h"
       }
     ],
+    ["transform-react-remove-prop-types", {
+      "mode": "wrap",
+      "ignoreFilenames": ["node_modules"]
+    }],
     "lodash",
-    "transform-async-to-generator",
-    "react-hot-loader/babel",
     "transform-function-bind",
     "transform-es2015-modules-commonjs",
     "transform-class-properties",
-    "transform-object-rest-spread",
-    [
+    "transform-object-rest-spread", [
       "module-resolver",
       {
         "root": [
