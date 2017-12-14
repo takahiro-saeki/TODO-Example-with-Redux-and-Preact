@@ -1,5 +1,12 @@
 import uuid from 'uuid';
-import { ADD, DELETE, TOGGLE, TOGGLE_ALL, CLEAR_TODO, EDIT_TODO } from '../constants/ActionTypes';
+import {
+  ADD,
+  DELETE,
+  TOGGLE,
+  TOGGLE_ALL,
+  CLEAR_TODO,
+  EDIT_TODO
+} from '../constants/ActionTypes';
 
 export const addTodo = (text, id) => ({
   type: ADD,

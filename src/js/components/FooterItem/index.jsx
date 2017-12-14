@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { string, func } from 'prop-types';
 
 const FooterItem = ({ data, filterChange, currentType }) => (
   <li>
@@ -11,5 +12,21 @@ const FooterItem = ({ data, filterChange, currentType }) => (
     </a>
   </li>
 );
+
+FooterItem.defaultProps = {
+  data: {
+    type: ''
+  },
+  filterChange: null,
+  currentType: ''
+};
+
+FooterItem.propTypes = {
+  data: {
+    type: string
+  },
+  filterChange: func,
+  currentType: string
+};
 
 export default FooterItem;

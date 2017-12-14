@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { func, arrayOf, string, object } from 'prop-types';
 import FooterItem from '../FooterItem';
 
 const Footer = ({ todoFilter, filterChange, currentType, data, clearTodo }) => (
@@ -36,7 +37,19 @@ const Footer = ({ todoFilter, filterChange, currentType, data, clearTodo }) => (
 );
 
 Footer.defaultProps = {
-  data: []
+  todoFilter: [],
+  filterChange: null,
+  currentType: '',
+  data: [],
+  clearTodo: null
+};
+
+Footer.propTypes = {
+  todoFilter: arrayOf(object),
+  filterChange: func,
+  currentType: string,
+  data: arrayOf(object),
+  clearTodo: func
 };
 
 export default Footer;

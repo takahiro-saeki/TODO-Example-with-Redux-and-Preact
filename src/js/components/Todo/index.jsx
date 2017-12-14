@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import { arrayOf, object, func } from 'prop-types';
 import { isEmpty, upperFirst } from 'lodash';
 import Footer from '../Footer';
 import TodoItem from '../TodoItem';
@@ -17,14 +18,32 @@ const TODO_FILTERS = {
 };
 
 class Todo extends Component {
+  static defaultProps = {
+    data: [],
+    handleToggleAll: null,
+    toggleTodo: null,
+    deleteTodo: null,
+    clearTodo: null,
+    editTodo: null
+  };
+
+  static propTypes = {
+    data: arrayOf(object),
+    handleToggleAll: func,
+    toggleTodo: func,
+    deleteTodo: func,
+    clearTodo: func,
+    editTodo: func
+  };
+
   state = {
     filter: 'ALL',
     isChecked: false
   };
 
   componentDidMount() {
-    if(isEmpty(location.hash)) {
-      return false
+    if (isEmpty(location.hash)) {
+      return false;
     }
     const url = location.hash.split('/')[1].toUpperCase();
     this.setState({ filter: url });
@@ -45,18 +64,14 @@ class Todo extends Component {
 
   render() {
     const { filter, isChecked } = this.state;
-    const {
-      data,
-      todoFilter,
-      toggleTodo,
-      deleteTodo,
-      clearTodo,
-      editTodo
-    } = this.props;
+    const { data, toggleTodo, deleteTodo, clearTodo, editTodo } = this.props;
     const filterFlag =
       data.filter(item => item.completed === false).length === 0;
     return (
-      <section style={{display: data.length === 0 ? 'none' : 'block'}} className="main">
+      <section
+        style={{ display: data.length === 0 ? 'none' : 'block' }}
+        className="main"
+      >
         <input className="toggle-all" type="checkbox" checked={filterFlag} />
         <label htmlFor="toggle-all" onClick={this.handleChecked}>
           Mark all as complete

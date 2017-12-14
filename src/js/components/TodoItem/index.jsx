@@ -1,10 +1,39 @@
 import { h, Component } from 'preact';
+import { func, shape, string, bool } from 'prop-types';
 
 export default class TodoItem extends Component {
+  static defaultProps = {
+    editTodo: null,
+    deleteTodo: null,
+    toggleTodo: null,
+    data: {
+      id: '',
+      text: '',
+      completed: false
+    }
+  };
+
+  static propTypes = {
+    editTodo: func,
+    deleteTodo: func,
+    toggleTodo: func,
+    data: shape({
+      id: string,
+      text: string,
+      completed: bool
+    })
+  };
+
   state = {
     isEdit: false,
     text: ''
   };
+
+  componentDidUpdate() {
+    if (this.state.isEdit === true) {
+      this.textInput.focus();
+    }
+  }
 
   changeEdit = () => {
     this.setState(state => ({ isEdit: !state.isEdit }));
@@ -17,12 +46,6 @@ export default class TodoItem extends Component {
     }
     this.setState({ text: e.target.value });
   };
-
-  componentDidUpdate() {
-    if (this.state.isEdit === true) {
-      this.textInput.focus();
-    }
-  }
 
   render() {
     const { data, deleteTodo, toggleTodo } = this.props;

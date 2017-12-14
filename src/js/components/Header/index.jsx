@@ -1,9 +1,21 @@
 import { h, Component } from 'preact';
-import { bindActionCreators } from 'redux';
+import { string, func } from 'prop-types';
 import { isEmpty } from 'lodash';
-import uuid from 'uuid'
+import uuid from 'uuid';
 
 export default class Header extends Component {
+  static defaultProps = {
+    title: '',
+    placeholder: '',
+    addTodo: null
+  };
+
+  static propTypes = {
+    title: string,
+    placeholder: string,
+    addTodo: func
+  };
+
   constructor(props) {
     super(props);
     this.state = {

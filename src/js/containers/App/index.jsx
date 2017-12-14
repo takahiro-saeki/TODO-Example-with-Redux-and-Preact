@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { func, arrayOf, object } from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'preact-redux';
 import Header from '../../components/Header';
@@ -32,6 +33,26 @@ const App = ({
     </section>
   </div>
 );
+
+App.defaultProps = {
+  todo: [],
+  addTodo: null,
+  handleToggleAll: null,
+  toggleTodo: null,
+  deleteTodo: null,
+  clearTodo: null,
+  editTodo: null
+};
+
+App.propTypes = {
+  todo: arrayOf(object),
+  addTodo: func,
+  handleToggleAll: func,
+  toggleTodo: func,
+  deleteTodo: func,
+  clearTodo: func,
+  editTodo: func
+};
 
 const mapStateToProps = state => ({
   todo: state.todo

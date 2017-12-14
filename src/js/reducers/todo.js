@@ -1,7 +1,13 @@
 import defaultData from '../defaultData';
 import storage from '../domain/storage';
-import { ADD, DELETE, TOGGLE, TOGGLE_ALL, CLEAR_TODO, EDIT_TODO } from '../constants/ActionTypes';
-
+import {
+  ADD,
+  DELETE,
+  TOGGLE,
+  TOGGLE_ALL,
+  CLEAR_TODO,
+  EDIT_TODO
+} from '../constants/ActionTypes';
 
 export default function todo(state = defaultData, action) {
   switch (action.type) {
